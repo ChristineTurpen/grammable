@@ -67,6 +67,8 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
+gem 'carrierwave', '~> 2.0'
+
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
