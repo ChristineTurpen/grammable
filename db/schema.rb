@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_000226) do
+ActiveRecord::Schema.define(version: 2020_02_02_232107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "message"
+    t.integer "user_id"
+    t.integer "gram_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gram_id"], name: "index_comments_on_gram_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "grams", force: :cascade do |t|
     t.text "message"
@@ -28,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_01_14_000226) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.string "picture"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
